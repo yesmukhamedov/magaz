@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route, Routes } from 'react-router-dom';
+import { IntlProvider } from 'react-intl';
+import { connect } from 'react-redux';
 
+import { messages } from './locale/messages'
+import Header from './components/header';
+import Footer from './components/footer';
+
+import Home from './pages/home';
+import Product from './pages/product';
+import Catalog from './pages/catalog';
+import './style.css';
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <IntlProvider locale={props.lang} messages={messages[props.lang]}> */}
+        <Header />
+        <br/><br/>
+        <Routes>
+          <Route path="" element={<Home />} />
+          <Route path="catalog" element={<Catalog />} />
+          <Route path="product" element={<Product />} />
+        </Routes>   
+        <br/><br/><br/>
+        <Footer />
+      {/* </IntlProvider> */}
+    </>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  console.log("language =>", state)
+  return {
+    lang: state.lang.lang
+  }
+}
+
+export default connect(mapStateToProps)(App);

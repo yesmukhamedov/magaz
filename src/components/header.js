@@ -21,7 +21,7 @@ const Header = props => {
       localStorage.setItem('locale',langCode)
     }
 
-    console.log("tyl",lang);
+    console.log("lang: ",lang);
 
   return (
     <>

@@ -8,8 +8,8 @@ import Header from './components/header';
 import Footer from './components/footer';
 
 import Home from './pages/home';
-import Product from './pages/product';
-import Catalog from './pages/catalog';
+import Index from './pages/product';
+import Category from './pages/category';
 import './style.css';
 function App() {
 
@@ -20,8 +20,8 @@ function App() {
         <br/><br/>
         <Routes>
           <Route path="" element={<Home />} />
-          <Route path="catalog" element={<Catalog />} />
-          <Route path="product" element={<Product />} />
+          <Route path="catalog" element={<Category />} />
+          <Route path="product" element={<Index />} />
         </Routes>   
         <br/><br/><br/>
         <Footer />

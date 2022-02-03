@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import { Grid, Segment, Image, Icon, Button } from 'semantic-ui-react'
 import { Carousel, Row, Col, Container } from 'react-bootstrap';
-import { products } from "../temporalBase";
+import { products } from "../../temporalBase";
 const queryString = require('query-string');
 
-const Product = props => {
+const Index = props => {
 
     const url = window.location.search;
     const current = queryString.parse(url);
@@ -74,4 +74,4 @@ const Product = props => {
     );
 }
 
-export default Product;
+export default Index;

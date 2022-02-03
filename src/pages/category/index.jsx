@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import { Grid, Segment, Image, Icon, Button, Header, Dropdown, List } from 'semantic-ui-react'
 import { Carousel, Row, Col, Container } from 'react-bootstrap';
-import Card from "../components/Card";
-import { products, categories } from "../temporalBase";
+import Card from "./components/Card";
+import { products, categories } from "../../temporalBase";
 const queryString = require('query-string');
 
-const Catalog = props => {
+const Index = props => {
 
     const sortOptions = [
         {key: 0, text: 'по возрастанию цены', value: 0},
@@ -108,4 +108,4 @@ const Catalog = props => {
     );
 }
 
-export default Catalog;
+export default Index;

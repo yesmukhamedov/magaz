@@ -2,15 +2,15 @@ import React, {useState } from 'react'
 import { connect } from 'react-redux';
 import { Grid, Segment, Image, Icon, Container, Button } from 'semantic-ui-react'
 import { Carousel, Row, Col } from 'react-bootstrap';
-import { changeLang } from '../redux/actions'
+import { changeLang } from '../../redux/actions'
 
-import Card from '../components/Poster'
-import { data, posters, slidePosters } from '../temporalBase'
+import Card from './components/Poster'
+import { data, posters, slidePosters } from '../../temporalBase'
 
 
-import { localeList, defaultLocale, text} from '../locale'
+import { localeList, defaultLocale, text} from '../../locale'
 
-const Home = props => {
+const Index = props => {
 
     const {
         lang,
@@ -90,7 +90,7 @@ const putActionsToProps = {
     changeLang
 }
 
-export default connect(putStateToProps, putActionsToProps)(Home);
+export default connect(putStateToProps, putActionsToProps)(Index);
 
 /*
 

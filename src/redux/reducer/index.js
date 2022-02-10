@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
-import lang from './langReducer';
+import userInfo from './userInfo';
+import header from "./header";
 
 const rootReducer = combineReducers({
-    lang: lang
+    userInfo,
+    header
 });
 
 export default rootReducer;

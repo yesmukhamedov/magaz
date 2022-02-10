@@ -2,7 +2,7 @@ import React from "react";
 import { Image, Icon, Grid, Card, Button, Segment } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 
-const Card_In_HomePage = props => {
+const Poster = props => {
 
     const diver = el => {
         return (
@@ -29,4 +29,4 @@ const Card_In_HomePage = props => {
     );
 }
 
-export default Card_In_HomePage;
+export default Poster;

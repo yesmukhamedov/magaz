@@ -1,39 +1,37 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 import { connect } from 'react-redux';
 
 import { messages } from './locale/messages'
-import Header from './components/header';
-import Footer from './components/footer';
 
-import Home from './pages/home';
-import Index from './pages/product';
-import Category from './pages/category';
+import { Header, Footer } from './components'
+import { Home, Category, Product, Blog } from './pages';
+
 import './style.css';
-function App() {
 
+function App(props) {
+    const { lang } = props;
   return (
+   <IntlProvider locale={lang} key={lang} messages={messages[lang]}>
     <>
-      {/* <IntlProvider locale={props.lang} messages={messages[props.lang]}> */}
         <Header />
-        <br/><br/>
-        <Routes>
-          <Route path="" element={<Home />} />
-          <Route path="catalog" element={<Category />} />
-          <Route path="product" element={<Index />} />
-        </Routes>   
-        <br/><br/><br/>
+        {/*<Routes>*/}
+        {/*    <Route path="" element={<Home />} />*/}
+        {/*    <Route path="catalog" component={Category} exact />*/}
+        {/*    <Route path="product" render={() => <Product />} />*/}
+        {/*</Routes>*/}
         <Footer />
-      {/* </IntlProvider> */}
     </>
+   </IntlProvider>
   );
 }
 
 const mapStateToProps = state => {
-  console.log("language =>", state)
+  console.log("App state =>", state)
   return {
-    lang: state.lang.lang
+    lang: state.userInfo.lang,
+    location: state.userInfo.location,
   }
 }
 

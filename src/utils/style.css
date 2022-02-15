@@ -1,0 +1,22 @@
+ .hoverBtnDark:hover{
+     background: white;
+     color: rgb(40, 40, 40);
+ }
+ .hoverBtnDark{
+     background: rgb(40, 40, 40);
+     color: white;
+     font-weight: bold;
+     text-transform: uppercase;
+     border-radius: 0;
+ }
+ .hoverBtnLight:hover{
+     background: rgb(40, 40, 40);
+     color: white;
+ }
+ .hoverBtnLight{
+     background: white;
+     color: rgb(40, 40, 40);
+     font-weight: bold;
+     text-transform: uppercase;
+     border-radius: 0;
+ }

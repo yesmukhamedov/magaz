@@ -2,16 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../style.css'
 
-const Select = React.memo(function Language({ items, active, onClick }) {
-
+function Language({ items, active, onClick }) {
+// console.log('items', items);
+// console.log('active', active);
     const [visiblePopup, setVisiblePopup] = React.useState(false);
     const sortRef = React.useRef();
-    const activeLabel = items.find((obj) => obj.code === active).name;
+    const activeLabel = items.find(obj => obj.code === active).name;
+
+    // React.useEffect(() => {
+    //     toggleVisiblePopup();
+    //     return () => {
+    //         setVisiblePopup(false); // from stackoverflow
+    //     };
+    // }, []);
 
     const toggleVisiblePopup = () => {
         setVisiblePopup(!visiblePopup);
-    };
-
+    }
     const handleOutsideClick = (event) => {
         const path = event.path || (event.composedPath && event.composedPath());
         if (!path.includes(sortRef.current)) {
@@ -64,16 +71,16 @@ const Select = React.memo(function Language({ items, active, onClick }) {
             )}
         </div>
     );
-});
+};
 
-Select.propTypes = {
+Language.propTypes = {
     active: PropTypes.string.isRequired,
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
     onClick: PropTypes.func.isRequired,
 };
 
-Select.defaultProps = {
+Language.defaultProps = {
     items: [],
 };
 
-export default Select;
+export default Language;

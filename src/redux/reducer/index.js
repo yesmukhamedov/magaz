@@ -1,11 +1,14 @@
 import { combineReducers } from 'redux';
 
 import userInfo from './userInfo';
-import header from "./header";
+import directory from './directory';
+import homeReducer from './homeReducer';
+
 
 const rootReducer = combineReducers({
     userInfo,
-    header
+    directory,
+    homeReducer
 });
 
 export default rootReducer;

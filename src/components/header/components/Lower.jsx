@@ -2,50 +2,33 @@ import React, { useState } from 'react';
 import {Col, Row, Container} from 'react-bootstrap'
 import {Icon, Image} from "semantic-ui-react";
 
-import { hanger, lupa } from '../../../assets/img/icons'
+import {hanger, lupa, whats} from '../../../assets/img/icons'
 import '../style.css';
 
-function Lower(props) {
-
-    const {
-    } = props;
+function Lower({ categories }) {
     return (
-        <Container fluid style={{ paddingLeft: 300, paddingRight: 300 }}>
-            <Row>
-                <Col md={2} >
-
-                </Col>
-                <Col md={8} style={{display: "flex", justifyContent:"space-between"}}>
-                    <a className={''} href={'/'}>NICOLE</a>
-                </Col>
-                <Col md={2} >
-
-                </Col>
-            </Row>
-            <Row>
-                <Col md={10} style={{display: "flex", justifyContent:"space-between"}}>
-                    <a>Свадебные платья</a>
-                    <a>Sale</a>
-                    <a>Вечерние платья</a>
-                    <a>Обувь</a>
-                    <a>Фата</a>
-                    <a>Будуар</a>
-                    <a>Аксессуары</a>
-                    {/*<ul>*/}
-                    {/*    <li></li>*/}
-                    {/*    <li></li>*/}
-                    {/*    <li></li>*/}
-                    {/*    <li></li>*/}
-                    {/*    <li></li>*/}
-                    {/*    <li></li>*/}
-                    {/*</ul>*/}
-                </Col>
-                <Col md={2} style={{display: "flex", justifyContent:"space-between"}}>
-                    <a><Image src={lupa} size='small' wrapped/></a>
-                    <a><Image src={hanger} size='small' wrapped/></a>
-                </Col>
-            </Row>
-        </Container>
+        <>
+            <Container fluid style={{paddingTop: 10, paddingBottom: 10 }}>
+                <Row>
+                    <Col md={12} style={{display: "flex", justifyContent:"center"}}>
+                        <a href={'/'}>NICOLE</a>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md={10}>
+                        <ul style={{display: "flex", justifyContent:"space-around"}}>
+                            {categories.map(category =>
+                                <li key={category.id}><a href={category.value}>{category.name}</a></li>
+                            )}
+                        </ul>
+                    </Col>
+                    <Col md={2} style={{display: "flex", justifyContent:"space-around"}}>
+                        <a href={'/'}><Image src={lupa} width="23"/></a>
+                        <a href={'/'}><Image src={hanger} width="30"/></a>
+                    </Col>
+                </Row>
+            </Container>
+        </>
     );
 }
 

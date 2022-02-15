@@ -1,31 +1,26 @@
 import React from "react";
-import { Image, Icon, Grid, Card, Button, Segment } from "semantic-ui-react";
+import {Image, Icon, Grid, Card, Button, Segment, Container} from "semantic-ui-react";
 import { Link } from 'react-router-dom';
+import {Col, Row} from "react-bootstrap";
 
-const Poster = props => {
-
-    const diver = el => {
-        return (
-            <div align='center'>
-                {el}
-            </div>
-        )
-    }
-    const {post} = props;
-    console.log("card => ", post);
+const Poster = ({posters, messages}) => {
     return (
-        <div>
-            <Image width = '100%' src={post.photo} wrapped ui={false} />
-            {diver(post.text21)}
-            <h5>{diver(post.text42)}</h5>
-            {diver(
-                <Link to={`catalog?categoryName=${post.value}`}>
-                    <a>ВЫБРАТЬ</a>
-                </Link>
-            )}
-            {/* <Segment style={{padding: 0}} inverted>{diver(<Button fluid inverted color='orange'>ВЫБРАТЬ</Button>)}</Segment> */}
-            <br />
-        </div>
+        <>
+            <Container style={{marginTop: 70}}>
+                <Row>
+                    {posters.map((poster, index) => (
+                        <Col md={4} sm={6} xs={12} key={`${index}${poster.value}`} style={{paddingLeft: '15', paddingRight: '15'}}>
+                            <Image width = '100%' src={poster.photo} wrapped ui={false} />
+                            <span style={{display: 'flex', justifyContent: 'center', paddingTop: '15', paddingBottom: '15'}}>{poster.text21}</span>
+                            <span style={{display: 'flex', justifyContent: 'center', paddingBottom: '15'}}>{poster.text42}</span>
+                            <Link to={`catalog?categoryName=${poster.value}`}>
+                                <a style={{display: 'flex', justifyContent: 'center'}}>{messages['select']}</a>
+                            </Link>
+                        </Col>
+                    ))}
+                </Row>
+            </Container>
+        </>
     );
 }
 

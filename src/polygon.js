@@ -71,3 +71,13 @@ fetch("https://ipinfo.io/json?token=$TOKEN").then(
 ).then(
     (jsonResponse) => console.log('jsonResponse', jsonResponse)
 )
+
+const [ geo, setGeo ] = useState({})
+navigator.geolocation.getCurrentPosition(
+    function(position) {
+        setGeo({lat: position.coords.latitude, lon: position.coords.longitude})
+    },
+    function(error){
+        console.log(error)
+    }
+);

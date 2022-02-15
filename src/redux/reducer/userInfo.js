@@ -1,22 +1,37 @@
-import {CHANGE_CITY, CHANGE_LANG, FETCH_BRANCHES } from '../actions/userInfo'
+import { LANGUAGE, BRANCH } from '../actions/userInfo'
 
 import { defaultLocale } from "../../locale";
 
 const initialState = {
     lang : defaultLocale,
-    city : 'ALM'
+    branch: {
+        id: 0,
+        city: "Almaty",
+        address: "st. Nazarbayev",
+        info: {
+            number: {
+                text: "+7 707 777 77 07",
+                value: ""
+            },
+            whatsApp: {
+                text: "+7 707 777 77 07",
+                value: ""
+            },
+            instagram: {
+                text: "insta_account",
+                value: ""
+            }
+        }
+    }
 }
 
 const userInfo = (state = initialState, action) => {
     switch(action.type) {       
-        case CHANGE_LANG: {
+        case LANGUAGE: {
             return {...state, lang: action.data};
         }
-        case CHANGE_CITY: {
-            return {...state, location: action.data};
-        }
-        case FETCH_BRANCHES: {
-            return {...state, location: action.data};
+        case BRANCH: {
+            return {...state, branch: action.data};
         }
         default: {
             return state;

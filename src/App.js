@@ -10,17 +10,16 @@ import { Home, Category, Product, Blog } from './pages';
 
 import './style.css';
 
-function App(props) {
-    const { lang } = props;
+function App({ lang }) {
   return (
    <IntlProvider locale={lang} key={lang} messages={messages[lang]}>
     <>
         <Header />
-        {/*<Routes>*/}
-        {/*    <Route path="" element={<Home />} />*/}
-        {/*    <Route path="catalog" component={Category} exact />*/}
-        {/*    <Route path="product" render={() => <Product />} />*/}
-        {/*</Routes>*/}
+        <Routes>
+            <Route path="" element={<Home />} />
+            {/*<Route path="catalog" component={Category} exact />*/}
+            {/*<Route path="product" render={() => <Product />} />*/}
+        </Routes>
         <Footer />
     </>
    </IntlProvider>
@@ -31,7 +30,7 @@ const mapStateToProps = state => {
   console.log("App state =>", state)
   return {
     lang: state.userInfo.lang,
-    location: state.userInfo.location,
+    // location: state.userInfo.location,
   }
 }
 

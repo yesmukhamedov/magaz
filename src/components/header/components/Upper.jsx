@@ -1,46 +1,47 @@
 import React, {useEffect, useState} from 'react';
 import {Col, Row, Container} from 'react-bootstrap'
-import Select from './Select'
+import Language from './Language'
+import Branch from './Branch'
 import '../style.css';
 import { whats, whats_h, viber, viber_h } from '../../../assets/img/icons'
-import {Image} from "semantic-ui-react";
+import {Button, Image} from "semantic-ui-react";
 
-function Upper({props, changeLang, localeList}) {
+function Upper({props, messages, changeLang, localeList, branches, branch, changeBranch}) {
 
-    const {
-        whatsApp,
-        number,
-        address,
-        instagram,
+    const { language } = props;
+    const { city, address, info } = props.branch;
 
-        language
-    } = props;
+    const [ state, setState ] = useState({
+        setCityModalOpen: false
+    })
 
-    const [ geo, setGeo ] = useState({})
-    navigator.geolocation.getCurrentPosition(
-        function(position) {
-            setGeo({lat: position.coords.latitude, lon: position.coords.longitude})
-        },
-        function(error){
-            console.log(error)
-        }
-    );
+    const select = id => {
+        changeBranch(id);
+        setState({...state, setCityModalOpen: false})
+    }
 
     return (
-        <Container fluid>
-            <Row style={{background: 'RGB(219, 190, 182)', paddingTop: 15, paddingBottom: 15}}>
-                <Col md={8} style={{display: "flex"}}>
-                    <Select active={language} onClick={changeLang} items={localeList}/>
-                    <span>м. Шаболовская, Москва, Ленинский проспект, 13</span>
-                </Col>
-                <Col md={4} style={{display: "flex", justifyContent:"space-between"}}>
-                    <a className="whatsApp" href={'/'} style={{display: "flex", alignItems:"center"}}><Image src={whats} size='small' wrapped/>WhatsApp</a>
-                    <a className="viber" href={'/'} style={{display: "flex", alignItems:"center"}}><Image src={viber} size='small' wrapped/>Viber</a>
-                    <a className="instagram" href={'/'} style={{display: "flex", alignItems:"center"}}>Instagram</a>
-                    <Select active={language} onClick={changeLang} items={localeList}/>
-                </Col>
-            </Row>
-        </Container>
+        <>
+            <Branch
+                messages={messages}
+                branches={branches}
+                open={state.setCityModalOpen}
+                select={select}
+                close={()=>setState({...state, setCityModalOpen: false})}
+            />
+            <Container fluid>
+                <Row style={{background: 'RGB(219, 190, 182)', paddingTop: 15, paddingBottom: 15}}>
+                    <Col md={8} style={{display: "flex"}}>
+                        <span onClick={()=>setState({...state, setCityModalOpen: true})}>{`${city} ${address}`}</span>
+                    </Col>
+                    <Col md={4} style={{display: "flex", justifyContent:"space-between"}}>
+                        <a className="whatsApp" href={'/'} style={{display: "flex", alignItems:"center"}}><Image src={whats} width="20"/>{info.number.text}</a>
+                        <a className="viber" href={'/'} style={{display: "flex", alignItems:"center"}}><Image src={viber} width="20"/>{info.instagram.text}</a>
+                        <Language active={language} onClick={changeLang} items={localeList}/>
+                    </Col>
+                </Row>
+            </Container>
+        </>
     );
 }
 

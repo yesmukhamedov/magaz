@@ -3,127 +3,93 @@ import { connect } from 'react-redux';
 import { Grid, Segment, Image, Icon, Container, Button } from 'semantic-ui-react'
 import { Carousel, Row, Col } from 'react-bootstrap';
 
-import { localeList, defaultLocale, text} from '../../locale'
-import {AboutUs, Billboard, Poster } from "./components";
-import axios from "axios";
+import { AboutUs, Billboard, Poster, Top50, Brides, Blog, Review } from "./components";
+import { getBillboards, getPosters, getAboutUs, getPosts, getReviews } from "../../redux/actions/homeActions";
 
-const Index = props => {
+import {injectIntl} from "react-intl";
+
+const Home = props => {
 
     const {
+        intl: { messages },
         lang,
+
+        billboards,
+        posters,
+        aboutUs,
+        posts,
+        reviews,
+
+        getBillboards,
+        getPosters,
+        getAboutUs,
+        getPosts,
+        getReviews
     } = props;
 
-    const initialState = {
-        data: [],
-        posters: [],
-        slidePosters: [],
+    useEffect(()=> {
+        getBillboards();
+        getPosters();
+        getAboutUs();
+        getPosts();
+        getReviews();
+    }, []);
 
-        title: '',
-        slides: [],
-        aboutUs: []
-    };
-
-    const [state, setState] = useState(initialState)
-    // useEffect(
-    //     ()=>fetch('http://localhost:3000/db.json')
-    //         .then(resp => resp.json())
-    //         .then(json => setState({
-    //             ...state,
-    //             data: json.data,
-    //             posters: json.posters,
-    //             slidePosters: json.slidePosters,
-    //
-    //             title: json.aboutUs.title,
-    //             slides: json.aboutUs.salon,
-    //             aboutUs: json.aboutUs.aboutUs
-    //         })), [])
-
-    axios.get('http://localhost:3000/db.json').then(resp=>console.log('axios', resp))
-    const {
-        data,
-        posters,
-        slidePosters,
-
-        title,
-        slides,
-        aboutUs
-    } = state;
+    // import axios from "axios";
+    // axios.get('http://localhost:3000/db.json').then(resp=>console.log('axios', resp))
 
   return (
     <>
-        <Billboard billboards={[]}/>
-        <Container>
-            <Row>
-            {posters.map(poster => (
-                        <>
-                            <Col md={4} sm={6}>
-                              <Poster
-                                key={poster.id} 
-                                post={poster}
-                              />
-                            </Col>
-                        </>
-                    ))}
-            </Row>
-        </Container>
+        <Billboard
+            messages={messages}
+            billboards={billboards}
+        />
+        <Poster
+            messages={messages}
+            posters={posters}
+        />
+        <Top50
+            messages={messages}
+            posters={posters}
+        />
         <AboutUs
-            title={title}
-            slides={slides}
+            messages={messages}
             aboutUs={aboutUs}
+        />
+        <Brides
+            messages={messages}
+            posters={posters}
+        />
+        <Blog
+            messages={messages}
+            posts={posts}
+        />
+        <Review
+            messages={messages}
+            reviews={reviews}
         />
     </>
   );
 }
 
 const putStateToProps = state => {
-    console.log("language =>", state.lang)
     return {
-        lang: state.lang.lang
+        lang: state.userInfo.lang,
+
+        billboards: state.homeReducer.billboards,
+        posters: state.homeReducer.posters,
+        aboutUs: state.homeReducer.aboutUs,
+        posts: state.homeReducer.posts,
+        reviews: state.homeReducer.reviews,
     }
 }
 
-export default connect(putStateToProps)(Index);
+const putActionsToProps = {
+    getBillboards,
+    getPosters,
+    getAboutUs,
+    getPosts,
+    getReviews
+}
 
-/*
-
- <Grid>
-                <Grid.Row>
-                    {products.map(product => (
-                        <>
-                            <Grid.Column width = {4}>
-                              <Card 
-                                fluid
-                                key={product.id} 
-                                product={product}
-                              />
-                            </Grid.Column>
-                        </>
-                    ))}
-                </Grid.Row>
-            </Grid>
-
-
- style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}
-      {
-                        products.map(product => (
-                            <Card 
-                                key = {product.id} 
-                                product = {product}
-                            />
-                    ))}
-
-
-                    , justifyContent: 'space-between'
-
-
-
-                                    {
-                        products.map(product => (
-                            <Grid.Column width = {4}>
-                                <Card1 
-                                    key = {product.id} 
-                                    product = {product}
-                                />
-                            </Grid.Column>
-                    ))}
-*/
+export default connect(putStateToProps, putActionsToProps)(injectIntl(Home));

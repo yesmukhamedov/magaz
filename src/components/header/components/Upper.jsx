@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Col, Row, Container} from 'react-bootstrap'
-import Language from './Language'
+
 import Branch from './Branch'
+import SortBy from "../../../utils/SortBy";
 import '../style.css';
 import { whats, whats_h, viber, viber_h } from '../../../assets/img/icons'
 import {Button, Image} from "semantic-ui-react";
@@ -25,19 +26,68 @@ function Upper({props, messages, changeLang, localeList, branches, branch, chang
             <Branch
                 messages={messages}
                 branches={branches}
+                lang={language}
                 open={state.setCityModalOpen}
                 select={select}
                 close={()=>setState({...state, setCityModalOpen: false})}
             />
             <Container fluid>
-                <Row style={{background: 'RGB(219, 190, 182)', paddingTop: 15, paddingBottom: 15}}>
-                    <Col md={8} style={{display: "flex"}}>
-                        <span onClick={()=>setState({...state, setCityModalOpen: true})}>{`${city} ${address}`}</span>
+                <Row
+                    style={{
+                        background: 'RGB(219, 190, 182)',
+                        paddingTop: 15,
+                        paddingBottom: 15
+                    }}>
+                    <Col
+                        md={8}
+                        style={{
+                            display: "flex"
+                        }}>
+                        <span
+                            onClick={()=>setState({
+                                ...state,
+                                setCityModalOpen: true
+                            })}>
+                            {`${city[language]} ${address[language]}`}
+                        </span>
                     </Col>
-                    <Col md={4} style={{display: "flex", justifyContent:"space-between"}}>
-                        <a className="whatsApp" href={'/'} style={{display: "flex", alignItems:"center"}}><Image src={whats} width="20"/>{info.number.text}</a>
-                        <a className="viber" href={'/'} style={{display: "flex", alignItems:"center"}}><Image src={viber} width="20"/>{info.instagram.text}</a>
-                        <Language active={language} onClick={changeLang} items={localeList}/>
+                    <Col
+                        md={4}
+                        style={{
+                            display: "flex",
+                            justifyContent:"space-between"
+                        }}>
+                        <a
+                            className="whatsApp"
+                            href={'/'}
+                            style={{
+                                display: "flex",
+                                alignItems:"center"
+                            }}>
+                            <Image
+                                src={whats}
+                                width="20"
+                            />
+                            {info.number.text}
+                        </a>
+                        <a
+                            className="viber"
+                            href={'/'}
+                            style={{
+                                display: "flex",
+                                alignItems:"center"
+                            }}>
+                            <Image
+                                src={viber}
+                                width="20"
+                            />
+                            {info.instagram.text}
+                        </a>
+                        <SortBy
+                            active={language}
+                            onClick={changeLang}
+                            items={localeList}
+                        />
                     </Col>
                 </Row>
             </Container>

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Grid, Segment, Image, Icon, Container, Button } from 'semantic-ui-react'
 import { Carousel, Row, Col } from 'react-bootstrap';
 
-import { AboutUs, Billboard, Poster, Top50, Brides, Blog, Review } from "./components";
+import { AboutUs, Billboard, Poster, TopProducts, Brides, Blog, Review } from "./components";
 import { getBillboards, getPosters, getAboutUs, getPosts, getReviews } from "../../redux/actions/homeActions";
 
 import {injectIntl} from "react-intl";
@@ -48,9 +48,9 @@ const Home = props => {
             messages={messages}
             posters={posters}
         />
-        <Top50
+        <TopProducts
             messages={messages}
-            posters={posters}
+            topProducts={posters}
         />
         <AboutUs
             messages={messages}
@@ -58,7 +58,7 @@ const Home = props => {
         />
         <Brides
             messages={messages}
-            posters={posters}
+            brides={posters}
         />
         <Blog
             messages={messages}

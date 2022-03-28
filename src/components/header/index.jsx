@@ -10,7 +10,7 @@ import axios from "axios";
 
 function Header(props) {
 
-    const {intl: { messages }} = props;
+    const {intl: { messages }, language} = props;
 
     useEffect(()=> {
         props.getBranches();
@@ -36,6 +36,7 @@ function Header(props) {
             />
             <Lower
                 categories={props.categories}
+                lang={language}
             />
         </>
     );

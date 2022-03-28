@@ -1,6 +1,5 @@
-import Card from "./Card";
+import Content from "./Content";
 import Menu from './Menu';
-import Path from './Path';
-import SortBy from './SortBy';
+import Header from "./Header";
 
-export { Card, Path, Menu, SortBy };
+export { Content, Menu, Header };

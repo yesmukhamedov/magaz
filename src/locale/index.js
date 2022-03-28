@@ -15,9 +15,9 @@ export const localeList = [
     // { key: 'en', text: 'English', value: 'en' },
     // { key: 'kk', text: 'Қазақша', value: 'kk' },
     // { key: 'ru', text: 'Русский', value: 'ru' }
-    { name: 'English', code: 'en', lang: 'English' },
-    { name: 'Қазақша', code: 'kk', lang: 'Kazakh' },
-    { name: 'Русский', code: 'ru', lang: 'Russian' }
+    { text: 'English', code: 'en', name: 'English' },
+    { text: 'Қазақша', code: 'kk', name: 'Kazakh' },
+    { text: 'Русский', code: 'ru', name: 'Russian' }
 ];
 
 export const text = (code, defaultMessage) => {

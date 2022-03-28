@@ -4,8 +4,12 @@ import { Carousel, Row, Col, Container } from 'react-bootstrap';
 // import { products } from "../../temporalBase";
 const queryString = require('query-string');
 
-const Index = props => {
+const Product = props => {
 
+    console.log('welcome!')
+    return(
+        <>111</>
+    )
     // const url = window.location.search;
     // const current = queryString.parse(url);
     //
@@ -74,4 +78,4 @@ const Index = props => {
     // );
 }
 
-export default Index;
+export default Product;

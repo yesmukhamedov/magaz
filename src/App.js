@@ -10,15 +10,27 @@ import { Home, Category, Product, Blog } from './pages';
 
 import './style.css';
 
+
 function App({ lang }) {
-  return (
+  //   // window.addEventListener('scroll', console.log(window.pageYOffset))
+  //  // , window.pageYOffset, window.pageXOffset)
+  //  //  React.useEffect(()=> console.log('scroll', document.documentElement.getBoundingClientRect().bottom), [document.documentElement.getBoundingClientRect().bottom]);
+  // // while(true){
+  // //       setTimeout(1000);
+  // //     console.log(document.documentElement.getBoundingClientRect().bottom)
+  // // }
+  // console.log('go', document.documentElement.scrollTop)
+
+    //exact
+    return (
    <IntlProvider locale={lang} key={lang} messages={messages[lang]}>
     <>
         <Header />
         <Routes>
-            <Route path="" element={<Home />} />
-            {/*<Route path="catalog" component={Category} exact />*/}
-            {/*<Route path="product" render={() => <Product />} />*/}
+            <Route path="" component={Home} />
+            <Route path="/:category" element={<Category />} />
+            <Route path="/blog/:post" element={<Blog />} />
+            <Route path="/:category/:product" element={<Product />} />
         </Routes>
         <Footer />
     </>

@@ -20,3 +20,37 @@
      text-transform: uppercase;
      border-radius: 0;
  }
+ .scrollerButton:hover{
+     background: black;
+     color: white;
+ }
+ .scrollerButton{
+     padding: 10px 10px 10px 10px;
+     height: 60px;
+     width: 60px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     opacity: 0.75;
+     color: black;
+     z-index: 1;
+     border: 0;
+     background: rgb(219, 190, 182);
+     font-size: 25px;
+     font-weight: 900;
+     border-radius: 50%;
+     position: fixed;
+     right: 10px;
+ }
+.scrollerButton:focus{
+    background: rgb(219, 190, 182);
+    border-color: unset;
+    box-shadow: unset;
+    color:black;
+}
+.scrollerButton:active{
+    color: white;
+    box-shadow: unset !important;
+    background-color: black;
+    border-color: unset;
+}

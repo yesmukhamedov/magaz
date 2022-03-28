@@ -14,7 +14,7 @@ const Poster = ({posters, messages}) => {
                             <span style={{display: 'flex', justifyContent: 'center', paddingTop: '15', paddingBottom: '15'}}>{poster.text21}</span>
                             <span style={{display: 'flex', justifyContent: 'center', paddingBottom: '15'}}>{poster.text42}</span>
                             <Link to={`catalog?categoryName=${poster.value}`}>
-                                <a style={{display: 'flex', justifyContent: 'center'}}>{messages['select']}</a>
+                                <a href={'/'} style={{display: 'flex', justifyContent: 'center'}}>{messages['select']}</a>
                             </Link>
                         </Col>
                     ))}

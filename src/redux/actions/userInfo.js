@@ -13,7 +13,7 @@ export const setBranch = id =>{
             .then(json => {
                 dispatch({
                     type: BRANCH,
-                    data: json.branches.filter(branch => branch.id === id)[0]
+                    data: json.branches.find(branch => branch.id === id)
                 })
             })
             .catch(error => {

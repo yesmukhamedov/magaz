@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import {Col, Row, Container} from 'react-bootstrap'
 import {Icon, Image} from "semantic-ui-react";
+import { Link } from 'react-router-dom';
 
 import {hanger, lupa, whats} from '../../../assets/img/icons'
 import '../style.css';
 
-function Lower({ categories }) {
+function Lower({ categories, lang }) {
     return (
         <>
             <Container fluid style={{paddingTop: 10, paddingBottom: 10 }}>
@@ -18,7 +19,7 @@ function Lower({ categories }) {
                     <Col md={10}>
                         <ul style={{display: "flex", justifyContent:"space-around"}}>
                             {categories.map(category =>
-                                <li key={category.id}><a href={category.value}>{category.name}</a></li>
+                                <li key={category.id}><Link to={`/${category.name}`}>{category.text[lang]}</Link></li>
                             )}
                         </ul>
                     </Col>

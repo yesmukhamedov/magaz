@@ -2,12 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../style.css'
 
-function Language({ items, active, onClick }) {
-// console.log('items', items);
-// console.log('active', active);
+function SortBy({ items, active, onClick }) {
     const [visiblePopup, setVisiblePopup] = React.useState(false);
     const sortRef = React.useRef();
-    const activeLabel = items.find(obj => obj.code === active).name;
+    const activeLabel = items.find(obj => obj.code === active).text;
 
     // React.useEffect(() => {
     //     toggleVisiblePopup();
@@ -63,7 +61,7 @@ function Language({ items, active, onClick }) {
                                 onClick={() => onSelectItem(obj.code)}
                                 // className={activeSortType === obj.type ? 'active' : ''}
                                 key={obj.code}>
-                                {obj.name}
+                                {obj.text}
                             </li>
                         ))}
                     </ul>
@@ -73,14 +71,14 @@ function Language({ items, active, onClick }) {
     );
 };
 
-Language.propTypes = {
+SortBy.propTypes = {
     active: PropTypes.string.isRequired,
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
     onClick: PropTypes.func.isRequired,
 };
 
-Language.defaultProps = {
+SortBy.defaultProps = {
     items: [],
 };
 
-export default Language;
+export default SortBy;

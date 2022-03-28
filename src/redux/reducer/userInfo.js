@@ -6,8 +6,21 @@ const initialState = {
     lang : defaultLocale,
     branch: {
         id: 0,
-        city: "Almaty",
-        address: "st. Nazarbayev",
+        city: {
+            en: "Almaty",
+            ru: "Алматы",
+            kk: "Алматы"
+        },
+        address: {
+            en: "st. Nazarbayev",
+            ru: "ул. Назарбаева",
+            kk: "Назарбаев к-сі"
+        },
+        officeHours: {
+            en: "Mon-Sun 11.00 - 21.00",
+            ru: "ПН-ВС 11.00 - 21.00",
+            kk: "Дүйсенбі-Жексенбі 11.00 - 21.00"
+        },
         info: {
             number: {
                 text: "+7 707 777 77 07",

@@ -11,9 +11,9 @@ import {
 } from 'semantic-ui-react';
 import { getCategories } from '../../redux/actions/directory'
 import { Upper, Lower } from './components'
+import ScrollToTopButton from "../../utils/ScrollToTopButton";
 
-function Footer(props){
-    const {intl: { messages }, categories, branch} = props;
+function Footer({intl: { messages }, categories, branch, language}){
     const initialState = {
         error: []
     }
@@ -21,8 +21,16 @@ function Footer(props){
 
     return (
         <>
-            <Upper messages={messages}/>
-            <Lower categories={categories} branch={branch}/>
+            <Upper
+                messages={messages}
+            />
+            <Lower
+                lang={language}
+                messages={messages}
+                categories={categories}
+                branch={branch}
+            />
+            <ScrollToTopButton />
         </>
     );
 }

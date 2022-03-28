@@ -7,13 +7,13 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 import {Image} from "semantic-ui-react";
 import {Link} from "react-router-dom";
 
-const Top50 = ({messages, posters}) => {
+const TopProducts = ({messages, topProducts}) => {
     return (
         <>
             <div style={{paddingTop: 80, paddingBottom: 40}}>
                 <Title text={messages['Top50Title']}/>
                 <Link to={`/`}>
-                    <a style={{display: 'flex', justifyContent: 'center', textTransform: 'uppercase'}}>{messages['viewAll']}</a>
+                    <span style={{display: 'flex', justifyContent: 'center', textTransform: 'uppercase'}}>{messages['viewAll']}</span>
                 </Link>
                 <OwlCarousel
                     className='owl-theme'
@@ -23,11 +23,11 @@ const Top50 = ({messages, posters}) => {
                     margin={0}
                     nav
                 >
-                    {posters.map((poster, index) => <div className='item' key={`${index}${poster.value}`} style={{paddingLeft: 5, paddingRight: 5, paddingTop: 40}}>
-                        <Image width = '100%' src={poster.photo} wrapped ui={false} />
-                        <span style={{display: 'flex', justifyContent: 'center', paddingTop: '15', paddingBottom: '15'}}>{poster.text21}</span>
-                        <span style={{display: 'flex', justifyContent: 'center', paddingBottom: '15'}}>{poster.text42}</span>
-                        <Link to={`catalog?categoryName=${poster.value}`}>
+                    {topProducts.map((product, index) => <div className='item' key={`${index}${product.value}`} style={{paddingLeft: 5, paddingRight: 5, paddingTop: 40}}>
+                        <Image width = '100%' src={product.photo} wrapped ui={false} />
+                        <span style={{display: 'flex', justifyContent: 'center', paddingTop: '15', paddingBottom: '15'}}>{product.text21}</span>
+                        <span style={{display: 'flex', justifyContent: 'center', paddingBottom: '15'}}>{product.text42}</span>
+                        <Link to={`catalog?categoryName=${product.value}`}>
                             <a style={{display: 'flex', justifyContent: 'center', textTransform: 'uppercase'}}>{messages['select']}</a>
                         </Link>
                     </div>)}
@@ -37,4 +37,4 @@ const Top50 = ({messages, posters}) => {
     );
 }
 
-export default Top50;
+export default TopProducts;

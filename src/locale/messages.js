@@ -40,6 +40,10 @@ export const messages={
       'weBrides': 'наши невесты',
       'Top50Title': 'top 50 зимних свадебных платьев',
       'select': 'выбрать',
-      'reviews': 'отзывы'
+      'reviews': 'отзывы',
+      'sortByAscendingPrice': 'по возрастанию цены',
+      'sortByDescendingPrice': 'по убыванию цены',
+      'sortByPopular': 'по популярности',
+      'officeHours': 'Часы работы'
     }
   }

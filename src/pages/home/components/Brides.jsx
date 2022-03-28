@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-const Brides = ({messages, posters}) => {
+const Brides = ({messages, brides}) => {
 
     return (
         <>
@@ -21,7 +21,7 @@ const Brides = ({messages, posters}) => {
                     dots={false}
                     nav
                 >
-                    {posters.map((card, index) => <div className='item' key={`${index}${card.value}`} style={{paddingLeft: 5, paddingRight: 5, paddingTop: 40}}>
+                    {brides.map((card, index) => <div className='item' key={`${index}${card.value}`} style={{paddingLeft: 5, paddingRight: 5, paddingTop: 40}}>
                         <Image width = '100%' src={card.photo} wrapped ui={false} />
                         <span style={{display: 'flex', justifyContent: 'center', paddingTop: '15', paddingBottom: '15'}}>{card.text21}</span>
                         <span style={{display: 'flex', justifyContent: 'center', paddingBottom: '15'}}>{card.text42}</span>

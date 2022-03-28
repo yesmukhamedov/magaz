@@ -2,9 +2,21 @@
   "branches": [
     {
       "id": 0,
-      "city": "Almaty",
-      "address": "st. Nazarbayev",
-      "officeHours": "11.00 - 21.00",
+      "city": {
+        "en": "Almaty",
+        "ru": "Алматы",
+        "kk": "Алматы"
+      },
+      "address": {
+        "en": "st. Nazarbayev",
+        "ru": "ул. Назарбаева",
+        "kk": "Назарбаев к-сі"
+      },
+      "officeHours": {
+        "en": "Mon-Sun 11.00 - 21.00",
+        "ru": "ПН-ВС 11.00 - 21.00",
+        "kk": "Дүйсенбі-Жексенбі 11.00 - 21.00"
+      },
       "info": {
         "number": {
           "text": "+7 707 777 77 07",
@@ -22,9 +34,21 @@
     },
     {
       "id": 1,
-      "city": "Astana",
-      "address": "st. Nazarbayev",
-      "officeHours": "Часы работы ПН-ВС 11.00 - 21.00",
+      "city": {
+        "en": "Nur-Sultan",
+        "ru": "Нур-Султан",
+        "kk": "Нұр-Сұлтан"
+      },
+      "address": {
+        "en": "st. Nazarbayev",
+        "ru": "ул. Назарбаева",
+        "kk": "Назарбаев к-сі"
+      },
+      "officeHours": {
+        "en": "Mon-Sun 11.00 - 21.00",
+        "ru": "ПН-ВС 11.00 - 21.00",
+        "kk": "Дүйсенбі-Жексенбі 11.00 - 21.00"
+      },
       "info": {
         "number": {
           "text": "+7 707 777 77 07",
@@ -144,38 +168,66 @@
   "categories": [
     {
       "id": 0,
-      "name": "Свадебные платья",
-      "value": "0"
+      "text": {
+        "ru": "Свадебные платья",
+        "en": "Wedding Dresses",
+        "kk": "Үйлену көйлегі"
+      },
+      "name": "weddingDresses"
     },
     {
       "id": 1,
-      "name": "Sale",
-      "value": "1"
+      "text": {
+        "ru": "Распродажа",
+        "en": "Sale",
+        "kk": "Науқан"
+      },
+      "name": "sale"
     },
     {
       "id": 2,
-      "name": "Вечерние платья",
-      "value": "2"
+      "text": {
+        "ru": "Вечерние платья",
+        "en": "Evening dresses",
+        "kk": "Кешкі көйлек"
+      },
+      "name": "eveningDresses"
     },
     {
       "id": 3,
-      "name": "Обувь",
-      "value": "3"
+      "text": {
+        "ru": "Обувь",
+        "en": "Shoes",
+        "kk": "Аяқ киім"
+      },
+      "name": "shoes"
     },
     {
       "id": 4,
-      "name": "Фата",
-      "value": "4"
+      "text": {
+        "ru": "Фата",
+        "en": "Veil",
+        "kk": "Перде"
+      },
+      "name": "veil"
     },
     {
       "id": 5,
-      "name": "Будуар",
-      "value": "5"
+      "text": {
+        "ru": "Будуар",
+        "en": "Boudoir",
+        "kk": "Будуар"
+      },
+      "name": "boudoir"
     },
     {
       "id": 6,
-      "name": "Аксессуары",
-      "value": "6"
+      "text": {
+        "ru": "Аксессуары",
+        "en": "Accessories",
+        "kk": "Аксессуарлар"
+      },
+      "name": "accessories"
     }
   ],
 

@@ -9,7 +9,6 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 import {Container} from "react-bootstrap";
 
 function Review({messages, reviews}) {
-    console.log('reviews', reviews)
     return (
         <div style={{marginTop: 80, marginBottom: 80, paddingTop: 80, paddingBottom: 80, background: 'RGB(219, 190, 182)'}}>
             <Container>
@@ -18,18 +17,17 @@ function Review({messages, reviews}) {
                     className='owl-theme'
                     loop
                     items={3}
-                    slideBy={5}
-                    margin={0}
+                    slideBy={1}
+                    margin={10}
                     dots={false}
                     nav
                 >
-                    {reviews.map((review, index) => <div
+                    {reviews.map((review, index) => <div key={`${index}${review.author}`}
                         className='item'
-                        key={`${index}${review.author}`}
                         style={{
                             background: 'white',
-                            marginLeft: 5,
-                            marginRight: 5,
+                            // marginLeft: 5,
+                            // marginRight: 5,
                             paddingLeft: 40,
                             paddingRight: 40,
                             paddingTop: 40,
@@ -42,6 +40,11 @@ function Review({messages, reviews}) {
                 </OwlCarousel>
                 <HvrButton text={messages['allReviews']} click={()=>console.log('11')}/>
             </Container>
+            {/*<div className="owl-nav">*/}
+            {/*    <button type="button" role="presentation" className="owl-prev"><span aria-label="Previous">‹</span>*/}
+            {/*    </button>*/}
+            {/*    <button type="button" role="presentation" className="owl-next"><span aria-label="Next">›</span></button>*/}
+            {/*</div>*/}
         </div>
     )
 }

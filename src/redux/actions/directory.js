@@ -30,8 +30,8 @@ export const getCategories = () =>{
                     data: json.categories.map(
                         category => ({
                             id: category.id,
-                            name: category.name,
-                            value: category.value
+                            text: category.text,
+                            name: category.name
                         }))})})
             .catch(error => {
                 console.log(error);

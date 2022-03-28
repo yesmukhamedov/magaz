@@ -3,7 +3,7 @@ import {Col, Container, Form, Row} from "react-bootstrap";
 import {Image} from "semantic-ui-react"
 import {maps, call, insta, facebook, vk} from '../../../assets/img/icons'
 
-function Lower({ categories, branch }) {
+function Lower({ messages, categories, branch, lang }) {
     return (
         <div style={{background: 'RGB(219, 190, 182)'}}>
             <Row>
@@ -33,12 +33,48 @@ function Lower({ categories, branch }) {
                      <Row style={{marginTop: 30}}>
                         <Col md={8} sm={12} xs={12}>
                             <ul>
-                                {categories.map(category => <li key={category.id}><a href={`${category.value}`}>{category.name}</a></li>)}
+                                {categories.map(category => (
+                                    <li
+                                        key={category.id}>
+                                        <a href={`${category.value}`}>
+                                            {category.name}
+                                        </a>
+                                    </li>
+                                ))}
                             </ul>
                         </Col>
                         <Col md={4} sm={12} xs={12}>
-                            {[{icon: maps, info: `${branch.city} ${branch.address}`}, {icon: call, info: branch.info.number.text}].map(
-                                ({icon, info}, index) => <span key={`${index}${icon}`} style={{display: 'flex', alignItems: 'center'}}><Image src={icon} style={{height: 12, width: 12}}/>{info}</span>)}
+                            {[{
+                                icon: maps,
+                                info: `
+                                    ${branch.city[lang]} 
+                                    ${branch.address[lang]}
+                                    ${messages['officeHours']} 
+                                    ${branch.officeHours[lang]}
+                                `
+                            }, {
+                                icon: call,
+                                info: `${branch.info.number.text}`
+                            }].map(
+                                ({icon, info}, index) => (
+                                    <span
+                                        key={`${index}${icon}`}
+                                        style={{
+                                            display: 'flex',
+                                            marginBottom: 20
+                                        }}
+                                    >
+                                        <Image
+                                            src={icon}
+                                            style={{
+                                                height: 12,
+                                                width: 12,
+                                                marginRight: 12
+                                            }}
+                                        />
+                                        {info}
+                                    </span>
+                                ))}
                         </Col>
                     </Row>
                 </Col>

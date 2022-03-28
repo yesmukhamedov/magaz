@@ -7,7 +7,7 @@ import '../style.css';
 
 function Branch(props) {
 
-    const { open=false, close, messages, branches=[], select } = props
+    const { open=false, close, messages, branches=[], select, lang } = props
     return (
         <Modal
             show={open}
@@ -21,12 +21,12 @@ function Branch(props) {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Table  bordered hover>
+                <Table bordered hover>
                     <tbody>
                     {branches.map(branch => (
                         <tr key={branch.id} onClick={()=>select(branch.id)}>
-                            <td>{branch.city}</td>
-                            <td>{branch.address}</td>
+                            <td>{branch.city[lang]}</td>
+                            <td>{branch.address[lang]}</td>
                         </tr>
                     ))}
                     </tbody>

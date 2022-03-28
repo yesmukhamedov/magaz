@@ -1,7 +1,7 @@
 //
 import React from "react";
 
-const Menu = props => {
+const Menu = ({categories}) => {
 
     return (
         <></>
